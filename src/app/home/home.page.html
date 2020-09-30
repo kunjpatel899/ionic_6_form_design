@@ -1,20 +1,252 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding style="background-color:#E5EAEE">
+  <ion-grid>
+    
+      <div class="accordion">
+        <div class="accordRow">
+          <div style="display: flex;" class="accordionBox" (click)="toggleGroup(1)">
+            <div style="width:95%" class="accordionLabel">Surveyor Details</div>
+            <div style="width:5%;margin-top: 10px;">
+              <ion-icon [hidden]="index == 1" name="add"></ion-icon>
+              <ion-icon [hidden]="index == 0 || index == 2" name="remove"></ion-icon>
+            </div>
+          </div>
+          <div class="collapse" [ngClass]="{'expand': index=='1'}">
+            <br>
+            <ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Surveyour ID<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input no-lines class="inputBox" [formControl]="surveyourID" type="text" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Surveyour Name<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input class="inputBox" [formControl]="surveyourName" type="text" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Surveyour Mobile<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input class="inputBox" [formControl]="surveyourMono" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Date of Visit<span class="asteric-mark">*</span>
+                </ion-label>
+                <!-- <ion-input class="inputBox" [formControl]="dateofVisit" type="date" stacked>
+                </ion-input> -->
+                <ion-datetime class="inputBox" [formControl]="dateofVisit" displayFormat="YYYY-MM-DD"></ion-datetime>
+              </ion-item>
+
+
+              <ion-list radio-group style="margin-top: 5px;margin-bottom: 0px;">
+                <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                  <ion-label class="labelText" stacked>Air Quality<span class="asteric-mark">*</span></ion-label>
+                </div>
+                <div style="margin-left: 20px; display: flex;">
+                  <div style="display: flex;">
+                    <ion-radio (ionSelect)="radioValue('high')" checked="true" value="high" item-left> </ion-radio>
+                    <ion-label style="margin-top: 0px;margin-left: 10px;">High</ion-label>
+                  </div>
+                  <div style="display: flex;">
+                    <ion-radio (ionSelect)="radioValue('low')" value="low" item-left></ion-radio>
+                    <ion-label style="margin-top: 0px;margin-left: 10px;">Low</ion-label>
+                  </div>
+                </div>
+              </ion-list>
+
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Air Index Value<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input class="inputBox" [formControl]="airIndexValue" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Country<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="country">
+                  <!-- <ion-option *ngFor="let countryValue of countryArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>State<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="state">
+                  <!-- <ion-option *ngFor="let stateValue of stateArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>District<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="district">
+                  <!-- <ion-option *ngFor="let districtValue of districtArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Taluka
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="taluka">
+                  <!-- <ion-option *ngFor="let talukaValue of talukaArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Panchayat
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="panchayat">
+                  <!-- <ion-option *ngFor="let pachayatValue of panchayatArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Village
+                </ion-label>
+                <ion-select class="inputBox" [formControl]="village">
+                  <!-- <ion-option *ngFor="let villageValue of villageArray| filterUnique "></ion-option> -->
+                </ion-select>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Location<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input class="inputBox" [formControl]="location" type="text" stacked>
+                </ion-input>
+              </ion-item>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordRow">
+          <div style="display: flex;" class="accordionBox" (click)="toggleGroup(2)">
+            <div style="width:95%" class="accordionLabel">AQI(Air Quality Index) Details</div>
+            <div style="width:5%;margin-top: 10px;">
+              <ion-icon [hidden]="index == 2" name="add"></ion-icon>
+              <ion-icon [hidden]="index == 0 || index == 1" name="remove"></ion-icon>
+            </div>
+          </div>
+          <div class="collapse" [ngClass]="{'expand': index=='2'}">
+            <br>
+            <ion-row>
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>PM2.5<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm25" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>PM10<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm10" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>NO2<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no2" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>NH3<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="nh3" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>SO2<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="so2" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>CO<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="co" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>NO<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no" type="number" stacked>
+                </ion-input>
+              </ion-item>
+
+             <ion-item lines="none">
+                <ion-label class="labelText" stacked>Ozone<span class="asteric-mark">*</span>
+                </ion-label>
+                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="ozone" type="number" stacked>
+                </ion-input>
+              </ion-item>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordRow">
+          <div class="accordionLabel" style="border-bottom: 1px solid #cfcfcf;">Basic Information
+          </div>
+          <ion-row>
+            <ion-item lines="none">
+              <ion-label class="labelText" stacked>Profile Id
+              </ion-label>
+              <ion-input class="inputBox" [formControl]="profileId" type="text" stacked>
+              </ion-input>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+           <ion-item lines="none">
+              <ion-label class="labelText" stacked>First Name<span class="asteric-mark">*</span>
+              </ion-label>
+              <ion-input class="inputBox" [formControl]="firstName" type="text" stacked>
+              </ion-input>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+           <ion-item lines="none">
+              <ion-label class="labelText" stacked>Surname
+              </ion-label>
+              <ion-input class="inputBox" [formControl]="surname" type="text" stacked>
+              </ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+           <ion-item lines="none">
+              <ion-label class="labelText" stacked>Father Name<span class="asteric-mark">*</span>
+              </ion-label>
+              <ion-input class="inputBox" [formControl]="fatherName" type="text" stacked>
+              </ion-input>
+            </ion-item>
+          </ion-row>
+        </div>
+      </div>
+   
+  </ion-grid>
 </ion-content>
