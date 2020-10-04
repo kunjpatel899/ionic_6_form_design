@@ -8,245 +8,1242 @@
 
 <ion-content padding style="background-color:#E5EAEE">
   <ion-grid>
-    
-      <div class="accordion">
-        <div class="accordRow">
-          <div style="display: flex;" class="accordionBox" (click)="toggleGroup(1)">
-            <div style="width:95%" class="accordionLabel">Surveyor Details</div>
-            <div style="width:5%;margin-top: 10px;">
-              <ion-icon [hidden]="index == 1" name="add"></ion-icon>
-              <ion-icon [hidden]="index == 0 || index == 2" name="remove"></ion-icon>
-            </div>
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(1)">
+          <div style="width:95%" class="accordionLabel">Surveyor Details</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 1" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index==1 || index == 0 || index == 2 || index ==3 || index==4 || index==5 || index==6 || index==7 || index==8 || index==9"
+              name="remove"></ion-icon>
           </div>
-          <div class="collapse" [ngClass]="{'expand': index=='1'}">
-            <br>
-            <ion-row>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='1'}">
+          <br>
+          <ion-row>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Surveyour ID<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input no-lines class="inputBox" [formControl]="surveyourID" type="text" stacked>
-                </ion-input>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Surveyour ID<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input no-lines class="inputBox" [formControl]="surveyourID" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Surveyour Name<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input class="inputBox" [formControl]="surveyourName" type="text" stacked>
-                </ion-input>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Surveyour Name<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="surveyourName" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Surveyour Mobile<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input class="inputBox" [formControl]="surveyourMono" type="number" stacked>
-                </ion-input>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Surveyour Mobile<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="surveyourMono" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Date of Visit<span class="asteric-mark">*</span>
-                </ion-label>
-                <!-- <ion-input class="inputBox" [formControl]="dateofVisit" type="date" stacked>
-                </ion-input> -->
-                <ion-datetime class="inputBox" [formControl]="dateofVisit" displayFormat="YYYY-MM-DD"></ion-datetime>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Date of Visit<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-datetime class="inputBox" [formControl]="dateofVisit" displayFormat="YYYY-MM-DD"></ion-datetime>
+                </div>
+              </div>
+            </ion-item>
 
 
-              <ion-list radio-group style="margin-top: 5px;margin-bottom: 0px;">
+            <ion-list>
+              <ion-radio-group>
                 <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
                   <ion-label class="labelText" stacked>Air Quality<span class="asteric-mark">*</span></ion-label>
                 </div>
-                <div style="margin-left: 20px; display: flex;">
+
+                <div style="display: flex; margin-left: 20px;">
                   <div style="display: flex;">
-                    <ion-radio (ionSelect)="radioValue('high')" checked="true" value="high" item-left> </ion-radio>
-                    <ion-label style="margin-top: 0px;margin-left: 10px;">High</ion-label>
+                    <ion-radio value="high" item-left>
+                    </ion-radio>
+                    <ion-label style="margin-top: 3px;margin-left: 10px;">High</ion-label>
                   </div>
-                  <div style="display: flex;">
-                    <ion-radio (ionSelect)="radioValue('low')" value="low" item-left></ion-radio>
-                    <ion-label style="margin-top: 0px;margin-left: 10px;">Low</ion-label>
+                  <div style="display: flex;margin-left: 20px;">
+                    <ion-radio value="low" item-left></ion-radio>
+                    <ion-label style="margin-top: 3px;margin-left: 10px;">Low</ion-label>
                   </div>
                 </div>
-              </ion-list>
+
+              </ion-radio-group>
+            </ion-list>
 
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Air Index Value<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input class="inputBox" [formControl]="airIndexValue" type="number" stacked>
-                </ion-input>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Air Index Value<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="airIndexValue" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Country<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="country">
-                  <!-- <ion-option *ngFor="let countryValue of countryArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Country<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="country">
+                    <!-- <ion-option *ngFor="let countryValue of countryArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>State<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="state">
-                  <!-- <ion-option *ngFor="let stateValue of stateArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>State<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="state">
+                    <!-- <ion-option *ngFor="let stateValue of stateArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>District<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="district">
-                  <!-- <ion-option *ngFor="let districtValue of districtArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>District<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="district">
+                    <!-- <ion-option *ngFor="let districtValue of districtArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Taluka
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="taluka">
-                  <!-- <ion-option *ngFor="let talukaValue of talukaArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Taluka
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="taluka">
+                    <!-- <ion-option *ngFor="let talukaValue of talukaArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Panchayat
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="panchayat">
-                  <!-- <ion-option *ngFor="let pachayatValue of panchayatArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Panchayat
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="panchayat">
+                    <!-- <ion-option *ngFor="let pachayatValue of panchayatArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Village
-                </ion-label>
-                <ion-select class="inputBox" [formControl]="village">
-                  <!-- <ion-option *ngFor="let villageValue of villageArray| filterUnique "></ion-option> -->
-                </ion-select>
-              </ion-item>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Village
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="village">
+                    <!-- <ion-option *ngFor="let villageValue of villageArray| filterUnique "></ion-option> -->
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
 
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Location<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input class="inputBox" [formControl]="location" type="text" stacked>
-                </ion-input>
-              </ion-item>
-            </ion-row>
-          </div>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Location<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="location" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
         </div>
       </div>
+    </div>
 
-      <div class="accordion">
-        <div class="accordRow">
-          <div style="display: flex;" class="accordionBox" (click)="toggleGroup(2)">
-            <div style="width:95%" class="accordionLabel">AQI(Air Quality Index) Details</div>
-            <div style="width:5%;margin-top: 10px;">
-              <ion-icon [hidden]="index == 2" name="add"></ion-icon>
-              <ion-icon [hidden]="index == 0 || index == 1" name="remove"></ion-icon>
-            </div>
-          </div>
-          <div class="collapse" [ngClass]="{'expand': index=='2'}">
-            <br>
-            <ion-row>
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>PM2.5<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm25" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>PM10<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm10" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>NO2<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no2" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>NH3<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="nh3" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>SO2<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="so2" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>CO<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="co" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>NO<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no" type="number" stacked>
-                </ion-input>
-              </ion-item>
-
-             <ion-item lines="none">
-                <ion-label class="labelText" stacked>Ozone<span class="asteric-mark">*</span>
-                </ion-label>
-                <ion-input placeholder="ug/m3" class="inputBox" [formControl]="ozone" type="number" stacked>
-                </ion-input>
-              </ion-item>
-            </ion-row>
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(2)">
+          <div style="width:95%" class="accordionLabel">AQI(Air Quality Index) Details</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 2" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==3 || index==4 || index==5 || index==6 || index==7 || index==8 || index==9"
+              name="remove"></ion-icon>
           </div>
         </div>
-      </div>
-
-      <div class="accordion">
-        <div class="accordRow">
-          <div class="accordionLabel" style="border-bottom: 1px solid #cfcfcf;">Basic Information
-          </div>
+        <div class="collapse" [ngClass]="{'expand': index=='2'}">
+          <br>
           <ion-row>
             <ion-item lines="none">
-              <ion-label class="labelText" stacked>Profile Id
-              </ion-label>
-              <ion-input class="inputBox" [formControl]="profileId" type="text" stacked>
-              </ion-input>
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>PM2.5<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm25" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
             </ion-item>
-          </ion-row>
 
-          <ion-row>
-           <ion-item lines="none">
-              <ion-label class="labelText" stacked>First Name<span class="asteric-mark">*</span>
-              </ion-label>
-              <ion-input class="inputBox" [formControl]="firstName" type="text" stacked>
-              </ion-input>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>PM10<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="pm10" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
             </ion-item>
-          </ion-row>
 
-          <ion-row>
-           <ion-item lines="none">
-              <ion-label class="labelText" stacked>Surname
-              </ion-label>
-              <ion-input class="inputBox" [formControl]="surname" type="text" stacked>
-              </ion-input>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>NO2<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no2" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
             </ion-item>
-          </ion-row>
-          <ion-row>
-           <ion-item lines="none">
-              <ion-label class="labelText" stacked>Father Name<span class="asteric-mark">*</span>
-              </ion-label>
-              <ion-input class="inputBox" [formControl]="fatherName" type="text" stacked>
-              </ion-input>
+
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>NH3<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="nh3" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>SO2<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="so2" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>CO<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="co" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>NO<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="no" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Ozone<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input placeholder="ug/m3" class="inputBox" [formControl]="ozone" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
             </ion-item>
           </ion-row>
         </div>
       </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(3)">
+          <div style="width:95%" class="accordionLabel">Basic Information</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 3" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==2 || index==4 || index==5 || index==6 || index==7 || index==8 || index==9"
+              name="remove"></ion-icon>
+          </div>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='3'}">
+          <br>
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Profile Id
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="profileId" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>First Name<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="firstName" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Surname
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="surname" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Father Name<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="fatherName" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Date Of Birth
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-datetime class="inputBox" [formControl]="dotbirth" displayFormat="YYYY-MM-DD"></ion-datetime>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Age<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="age" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Gender<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="gender">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Indentity Type<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="identityCardType">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Identity Card Number<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input [disabled]=true class="inputBox" [formControl]="cardNumber" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Highest Education Level<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="eduLevel">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Income Status<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="incomeStatus">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Daily Income<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="dailyIncome" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Marital Status<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="maritalStatus">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Spouse Name<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="spouseName" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Mobile Number
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="mono" type="number" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Blood Group
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="bloodGrop">
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Email
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="email" type="email" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Migrant<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(4)">
+          <div style="width:95%" class="accordionLabel">Personal History</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 4" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==2 || index ==3 || index==5 || index==6 || index==7 || index==8 || index==9"
+              name="remove">
+            </ion-icon>
+          </div>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='4'}">
+          <br>
+          <ion-list>
+            <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+              <ion-label class="labelText" stacked>Any Known NCD</ion-label>
+            </div>
+            <div style="display: flex;">
+              <ion-item lines="none">
+                <ion-label>DM </ion-label>
+                <ion-checkbox slot="start"></ion-checkbox>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>HTN </ion-label>
+                <ion-checkbox slot="start"></ion-checkbox>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>CVD </ion-label>
+                <ion-checkbox slot="start"></ion-checkbox>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>CA </ion-label>
+                <ion-checkbox slot="start"></ion-checkbox>
+              </ion-item>
+            </div>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Tobacco, Smoking<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Tobacco, Smokeless ( Chewing, Snuffing)<span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Alcohol Consumption<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(5)">
+          <div style="width:95%" class="accordionLabel">Construction Worker Profile</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 5" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==2 || index ==3 || index==4 || index==6 || index==7 || index==8 || index==9"
+              name="remove">
+            </ion-icon>
+          </div>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='5'}">
+          <br>
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Construction Site Name<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="siteName" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Construction Site ID<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-input class="inputBox" [formControl]="siteId" type="text" stacked>
+                  </ion-input>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Current Job Type<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="jobType">
+
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Duration<span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-datetime class="inputBox" [formControl]="durationFrom" displayFormat="YYYY-MM-DD"></ion-datetime>
+                  <br>
+                  <ion-datetime class="inputBox" [formControl]="durationTo" displayFormat="YYYY-MM-DD"></ion-datetime>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item lines="none">
+              <div>
+                <div>
+                  <ion-label class="labelText" stacked>Job Characteristics <span class="asteric-mark">*</span>
+                  </ion-label>
+                </div>
+                <div>
+                  <ion-select class="inputBox selectClass" [formControl]="jobCharacteristic">
+
+                  </ion-select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-list>
+              <ion-radio-group>
+                <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                  <ion-label class="labelText" stacked>Have You Earlier Been A Construction Worker <span
+                      class="asteric-mark">*</span></ion-label>
+                </div>
+
+                <div style="display: flex; margin-left: 20px;">
+                  <div style="display: flex;">
+                    <ion-radio value="yes" item-left>
+                    </ion-radio>
+                    <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                  </div>
+                  <div style="display: flex;margin-left: 20px;">
+                    <ion-radio value="no" item-left></ion-radio>
+                    <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                  </div>
+                </div>
+
+              </ion-radio-group>
+            </ion-list>
+          </ion-row>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(6)">
+          <div style="width:95%" class="accordionLabel">Usage of Protective Equipments</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 6" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==2 || index ==3 || index==5 || index==4 || index==7 || index==8 || index==9"
+              name="remove">
+            </ion-icon>
+          </div>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='6'}">
+          <br>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Protective Gloves - PPE<span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Hearing Protection<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Respiratory Protection<span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Chemical Splash Goggles <span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Full Face Shields While Cutting, Grinding Or Chipping <span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Fall Protection Equipment When Working Above 6 Feet<span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+        </div>
+      </div>
+    </div>
+
    
+
+    <div class="accordion">
+      <div class="accordRow">
+        <div style="display: flex;" class="accordionBox" (click)="toggleGroup(8)">
+          <div style="width:95%" class="accordionLabel">TB Symtoms</div>
+          <div style="width:5%;margin-top: 10px;">
+            <ion-icon [hidden]="index == 8" name="add"></ion-icon>
+            <ion-icon
+              [hidden]="index==10 || index==12 || index==13 || index ==11 || index == 0 || index == 1 || index ==2 || index ==3 || index==5 || index==4 || index==7 || index ==6 || index==9"
+              name="remove">
+            </ion-icon>
+          </div>
+        </div>
+        <div class="collapse" [ngClass]="{'expand': index=='8'}">
+          <br>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Have You Ever Been Treated With TB<span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>He/She Has Diabetic<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Persistant Cough Two Weeks<span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Fever For Last 2 Weeks <span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Significant Weight Loss <span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Chest Pain In Last One Month<span class="asteric-mark">*</span>
+                </ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>History Of Anti TB Treatmnet Previous<span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>BCG Status<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>HIV Status<span class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 18px;">
+                <ion-label class="labelText" stacked>Presense Of Blood In Sputum Any Time During Last 3 Months<span
+                    class="asteric-mark">*</span></ion-label>
+              </div>
+
+              <div style="display: flex; margin-left: 20px;">
+                <div style="display: flex;">
+                  <ion-radio value="yes" item-left>
+                  </ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">Yes</ion-label>
+                </div>
+                <div style="display: flex;margin-left: 20px;">
+                  <ion-radio value="no" item-left></ion-radio>
+                  <ion-label style="margin-top: 3px;margin-left: 10px;">No</ion-label>
+                </div>
+              </div>
+
+            </ion-radio-group>
+          </ion-list>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div style="text-align: center;">
+      <ion-button color="dark">Success</ion-button>
+      <ion-button color="dark">Back</ion-button>
+    </div>
   </ion-grid>
 </ion-content>
